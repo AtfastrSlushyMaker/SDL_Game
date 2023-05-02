@@ -1,5 +1,5 @@
-files = main.c menu/menu.c 
+files = main.c menu/menu.c game.c
 
-game: $(files)
-	gcc $(files) -o game -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf
-	./game
+Island: $(files)
+	gcc $(files) -o Island -lSDL -lSDL_mixer -lSDL_image -lSDL_ttf
+	./Island

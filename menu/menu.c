@@ -5,31 +5,30 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
 #include "menu.h"
-
-void init_image(image *IMAGE, char *url, int x, int y)
-{
-  IMAGE->url = url;
-  IMAGE->img = IMG_Load(IMAGE->url);
-  IMAGE->pos.x = x;
-  IMAGE->pos.y = y;
-  IMAGE->pos.w = IMAGE->img->w;
-  IMAGE->pos.h = IMAGE->img->h;
-};
-
-void display_background(image *IMAGE, SDL_Surface *screen)
-{
-  SDL_BlitSurface(IMAGE->img, &IMAGE->pos, screen, &IMAGE->pos);
-};
-void display_image(image *IMAGE, SDL_Surface *screen)
-{
-  SDL_BlitSurface(IMAGE->img, NULL, screen, &IMAGE->pos);
-};
+#include "../game.h"
 
 void anim_boat(image *IMAGE, SDL_Surface *screen)
 {
-  if (IMAGE->pos.x < 500)
-  {
+  if (IMAGE->pos.x <= 500)
     IMAGE->pos.x += 1;
-  }
   display_image(IMAGE, screen);
+};
+
+void anim_balloon(image *IMAGE, SDL_Surface *screen)
+{
+  static int direction = 1;
+
+  IMAGE->pos.y += direction;
+
+  if (IMAGE->pos.y >= 400)
+    direction = -1;
+
+  else if (IMAGE->pos.y <= 200)
+    direction = 1;
+
+  display_image(IMAGE, screen);
+}
+void free_image(image *IMAGE)
+{
+  SDL_FreeSurface(IMAGE->img);
 };

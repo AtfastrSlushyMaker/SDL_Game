@@ -7,6 +7,9 @@
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
-#include "menu/menu.h"
+#include "../game.h"
+#include "../menu/menu.h"
+
+void Control_Volume(int *volume, int volume_offset);
 
 #endif
