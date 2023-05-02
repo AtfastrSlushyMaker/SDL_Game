@@ -26,5 +26,5 @@ void init_image(image *IMAGE, char *url, int x, int y);
 void display_background(image *IMAGE, SDL_Surface *screen);
 void display_image(image *IMAGE, SDL_Surface *screen);
 void init_music(Mix_Music *music, char *url, int volume);
-
+void free_image(image *IMAGE);
 #endif

@@ -10,6 +10,6 @@
 #include "../game.h"
 #include "../menu/menu.h"
 
-void Control_Volume(int *volume, int volume_offset);
+void Control_Volume(int *volume, int *volume_offset, int key, int *volume_steps);
 
 #endif

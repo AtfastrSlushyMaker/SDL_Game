@@ -8,31 +8,33 @@
 #include "../menu/menu.h"
 #include "settings.h"
 
-void Control_Volume(int *volume, int volume_offset, int key)
+void Control_Volume(int *volume, int *volume_offset, int key, int *volume_steps)
 {
-  static int volume_steps = 5;
 
   if ((*volume) <= 120 && (*volume) >= 0)
   {
+
     if (key == 1)
     {
-      if (volume_steps < 5)
+      if ((*volume_steps) < 5)
       {
         (*volume) += 20;
-        volume_steps++;
+
+        (*volume_steps)++;
         (*volume_offset) += 50;
       }
     }
 
     if (key == -1)
     {
-      if (volume_steps >= 0)
+      if ((*volume_steps) >= 0)
       {
         (*volume) -= 20;
-        volume_steps--;
+        (*volume_steps)--;
         (*volume_offset) -= 50;
       }
     }
   }
+
   Mix_VolumeMusic((*volume));
 }

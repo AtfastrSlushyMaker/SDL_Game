@@ -8,7 +8,7 @@
 
 void anim_boat(image *IMAGE, SDL_Surface *screen);
 void anim_balloon(image *IMAGE, SDL_Surface *screen);
-
-void free_image(image *IMAGE);
+void hover_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y);
+void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL_Event event, int level, int *current_level, int *game);
 
 #endif

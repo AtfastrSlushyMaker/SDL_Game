@@ -37,3 +37,8 @@ void init_music(Mix_Music *music, char *url, int volume)
   Mix_PlayMusic(music, -1);
   Mix_VolumeMusic(volume);
 };
+
+void free_image(image *IMAGE)
+{
+  SDL_FreeSurface(IMAGE->img);
+};

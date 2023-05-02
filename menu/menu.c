@@ -28,7 +28,23 @@ void anim_balloon(image *IMAGE, SDL_Surface *screen)
 
   display_image(IMAGE, screen);
 }
-void free_image(image *IMAGE)
+
+void hover_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y)
 {
-  SDL_FreeSurface(IMAGE->img);
-};
+  if (IMAGE->pos.x <= x && IMAGE->pos.x + IMAGE->pos.w >= x && IMAGE->pos.y <= y && IMAGE->pos.y + IMAGE->pos.h >= y)
+  {
+    display_image(&var, screen);
+  }
+}
+
+void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL_Event event, int level, int *current_level, int *game)
+{
+  if (event.button.button == SDL_BUTTON_LEFT && (IMAGE->pos.x <= x && IMAGE->pos.x + IMAGE->pos.w >= x && IMAGE->pos.y <= y && IMAGE->pos.y + IMAGE->pos.h >= y))
+  {
+    display_image(&var, screen);
+    if (level == 0)
+      *game = 0;
+    else
+      *current_level = level;
+  }
+}
