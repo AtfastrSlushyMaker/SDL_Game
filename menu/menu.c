@@ -20,18 +20,19 @@ void anim_balloon(image *IMAGE, SDL_Surface *screen)
 
   IMAGE->pos.y += direction;
 
-  if (IMAGE->pos.y >= 400)
+  if (IMAGE->pos.y >= 300)
     direction = -1;
 
   else if (IMAGE->pos.y <= 200)
     direction = 1;
-
+  IMAGE->pos.x = (IMAGE->pos.x + 1) % (SCREEN_W * 1);
   display_image(IMAGE, screen);
 }
 
 void hover_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y)
 {
-  if (IMAGE->pos.x <= x && IMAGE->pos.x + IMAGE->pos.w >= x && IMAGE->pos.y <= y && IMAGE->pos.y + IMAGE->pos.h >= y)
+
+  if (x >= IMAGE->pos.x && x <= IMAGE->pos.x + IMAGE->pos.w && y >= IMAGE->pos.y && y <= IMAGE->pos.y + IMAGE->pos.h)
   {
     display_image(&var, screen);
   }
@@ -42,9 +43,24 @@ void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL
   if (event.button.button == SDL_BUTTON_LEFT && (IMAGE->pos.x <= x && IMAGE->pos.x + IMAGE->pos.w >= x && IMAGE->pos.y <= y && IMAGE->pos.y + IMAGE->pos.h >= y))
   {
     display_image(&var, screen);
-    if (level == 0)
+    if (level == -10)
       *game = 0;
     else
       *current_level = level;
   }
+}
+
+void anim_title(image *IMAGE, SDL_Surface *screen)
+{
+  static int direction_title = 1;
+
+  IMAGE->pos.y += direction_title;
+
+  if (IMAGE->pos.y >= 50)
+    direction_title = -1;
+
+  else if (IMAGE->pos.y <= 25)
+    direction_title = 1;
+
+  display_image(IMAGE, screen);
 }

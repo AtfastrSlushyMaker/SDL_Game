@@ -25,6 +25,7 @@ typedef struct
 void init_image(image *IMAGE, char *url, int x, int y);
 void display_background(image *IMAGE, SDL_Surface *screen);
 void display_image(image *IMAGE, SDL_Surface *screen);
-void init_music(Mix_Music *music, char *url, int volume);
+void play_music(Mix_Music *music, char *url, int volume);
 void free_image(image *IMAGE);
+void set_music_on(int *music_on, int *music_1_off, int *music_2_off, int *music_3_off, int *music_4_off);
 #endif

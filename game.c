@@ -27,13 +27,14 @@ void display_image(image *IMAGE, SDL_Surface *screen)
   SDL_BlitSurface(IMAGE->img, NULL, screen, &IMAGE->pos);
 };
 
-void init_music(Mix_Music *music, char *url, int volume)
+void play_music(Mix_Music *music, char *url, int volume)
 {
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
   {
     printf("%s\n", SDL_GetError());
   }
   music = Mix_LoadMUS(url);
+  Mix_HaltMusic();
   Mix_PlayMusic(music, -1);
   Mix_VolumeMusic(volume);
 };
@@ -41,4 +42,18 @@ void init_music(Mix_Music *music, char *url, int volume)
 void free_image(image *IMAGE)
 {
   SDL_FreeSurface(IMAGE->img);
+};
+
+void background_music(Mix_Music *music)
+{
+  Mix_PlayMusic(music, -1);
+};
+
+void set_music_on(int *music_on, int *music_1_off, int *music_2_off, int *music_3_off, int *music_4_off)
+{
+  *music_on = 1;
+  *music_1_off = 0;
+  *music_2_off = 0;
+  *music_3_off = 0;
+  *music_4_off = 0;
 };
