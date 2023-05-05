@@ -52,7 +52,7 @@ void init_fire_amber(image fire[])
   int i;
   int random_x, random_y;
 
-  for (i = 0; i < 15; i++)
+  for (i = 0; i < 20; i++)
   {
     // srand(time(NULL));
     random_x = (rand() % SCREEN_W);
@@ -66,7 +66,7 @@ void anim_fire_amber(image fire[], SDL_Surface *screen)
   int i;
   int r;
   srand(time(NULL));
-  for (i = 0; i < 15; i++)
+  for (i = 0; i < 20; i++)
   {
     r = (rand() % 5) + 1;
     fire[i].pos.x = (fire[i].pos.x + r) % SCREEN_W;

@@ -57,3 +57,13 @@ void set_music_on(int *music_on, int *music_1_off, int *music_2_off, int *music_
   *music_3_off = 0;
   *music_4_off = 0;
 };
+
+void free_array_image(image *IMAGE, int size)
+{
+  int i;
+  for (i = 0; i < size; i++)
+  {
+    if (IMAGE[i].img != NULL)
+      free_image(&IMAGE[i]);
+  }
+};

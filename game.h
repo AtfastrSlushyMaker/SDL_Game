@@ -28,4 +28,5 @@ void display_image(image *IMAGE, SDL_Surface *screen);
 void play_music(Mix_Music *music, char *url, int volume);
 void free_image(image *IMAGE);
 void set_music_on(int *music_on, int *music_1_off, int *music_2_off, int *music_3_off, int *music_4_off);
+void free_array_image(image *IMAGE, int size);
 #endif

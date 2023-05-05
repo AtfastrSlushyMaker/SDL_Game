@@ -35,15 +35,15 @@ int main()
   image back_arrow;
 
   // MUSIC
-  Mix_Music *menu_music;
+  Mix_Music *menu_music = NULL;
   int menu_music_on = 0;
-  Mix_Music *settings_music;
+  Mix_Music *settings_music = NULL;
   int settings_music_on = 0;
-  Mix_Music *level1_music;
+  Mix_Music *level1_music = NULL;
   int level1_music_on = 0;
-  Mix_Music *level2_music;
+  Mix_Music *level2_music = NULL;
   int level2_music_on = 0;
-  Mix_Music *level3_music;
+  Mix_Music *level3_music = NULL;
   int level3_music_on = 0;
 
   Mix_Music *music;
@@ -227,6 +227,22 @@ int main()
   // SETTINGS
   free_image(&bg_settings);
   free_image(&settings_menu);
+  free_image(&muted);
+  free_image(&not_muted);
+  free_image(&back_arrow);
+  free_image(&volume_slider[0]);
+  free_image(&volume_slider[1]);
+  free_image(&volume_slider[2]);
+  free_image(&volume_slider[3]);
+  free_image(&volume_slider[4]);
+  free_array_image(fire_amber, 20);
+
+  // FREE MUSIC
+  Mix_FreeMusic(menu_music);
+  Mix_FreeMusic(settings_music);
+  Mix_FreeMusic(level1_music);
+  Mix_FreeMusic(level2_music);
+  Mix_FreeMusic(level3_music);
 
   SDL_Quit();
   return 0;
