@@ -13,7 +13,7 @@ typedef struct
 	int direction;
 } background;
 
-void initBackground(background *bg,char *url,char *maskURL);
+void initBackground(background *backg, char *url, char *maskURL);
 void scrolling(background *bg, player p, int col, int col2, int col3, int col4);
 void displayLevel(background backg, SDL_Surface *screen);
 #endif

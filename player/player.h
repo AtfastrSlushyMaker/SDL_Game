@@ -4,18 +4,15 @@
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
-#include "../enemy/enemy.h"
+#include "../enemy/AABB.h"
+
 typedef struct
 {
-    char *url;
-    SDL_Rect displayed_img_pos;
-    SDL_Rect screen_img_pos;
-    SDL_Surface *img;
+  char *url;
+  SDL_Rect displayed_img_pos;
+  SDL_Rect screen_img_pos;
+  SDL_Surface *img;
 } image_lot1;
-typedef struct
-{
-  SDL_Rect collision;
-} AABB;
 
 typedef struct
 {
@@ -52,18 +49,20 @@ typedef struct
   int IS_HIT;
   int multiplayer;
 } player;
+
 void initPlayer1(player *p);
 void initPlayer2(player *p);
 void displayPlayer(SDL_Surface *screen, player p);
 void movePlayer(player *p, Uint32 dt);
-void stopPlayer(player *p,Uint32 *stop_time);
+
+void stopPlayer(player *p, Uint32 *stop_time);
 void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt);
 void crouchPlayer(player *p);
-void animatePlayer(player *p,Uint32 stop_time);
-void handleMovement(SDL_Surface *screen, player *p, Uint32 dt, Uint32 stop_time,int multiplayer);
-void initScore(  player *p );
-void displayScore(SDL_Surface *screen , player *p );
+void animatePlayer(player *p, Uint32 stop_time);
+void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer);
+void initScore(player *p);
+void displayScore(SDL_Surface *screen, player *p);
 void libPlayer(player *p);
 void initHealth(player *p);
-void displayHealth(SDL_Surface *screen , player *p, image_lot1 bgIMG );
+void displayHealth(SDL_Surface *screen, player *p, image_lot1 bgIMG);
 #endif

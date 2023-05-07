@@ -46,7 +46,10 @@ void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL
     if (level == -10)
       *game = 0;
     else if (level == 69)
+    {
       *multiplayer = 1;
+      *current_level = 1;
+    }
     else
       *current_level = level;
   }

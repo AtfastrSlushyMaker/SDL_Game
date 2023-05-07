@@ -3,14 +3,16 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
-#include "background.h"
 #include "../player/player.h"
 #include "../game.h"
+#include "background.h"
+
 void displayLevel(background backg, SDL_Surface *screen)
 {
-	SDL_BlitSurface(backg.bg, &backg.camera, screen, &backg.bgPos);
+    SDL_BlitSurface(backg.bg, &backg.camera, screen, &backg.bgPos);
 }
-void initiBackground(background *backg,char *url,char *maskURL)
+
+void initBackground(background *backg, char *url, char *maskURL)
 {
     backg->bg = IMG_Load(url);
     backg->mask = IMG_Load(maskURL);
@@ -22,6 +24,7 @@ void initiBackground(background *backg,char *url,char *maskURL)
     backg->camera.h = SCREEN_H;
     backg->direction = 0;
 }
+
 void scrolling(background *backg, player p, int col, int col2, int col3, int col4)
 {
     if (backg->direction == 2)

@@ -4,8 +4,9 @@
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
-#include "../game.h"
 #include "../player/player.h"
+#include "../game.h"
+#include "AABB.h"
 
 /**
  * @file enemy.h
@@ -17,6 +18,7 @@
  */
 
 //--------------------ENNEMI--------------------
+
 /**
  * @struct state
  * @brief state structure
@@ -55,9 +57,10 @@ void moveX(Ennemi *e);
 void moveY(Ennemi *e);
 void EnnemiDirection_GROUND(Ennemi *e, player p);
 void EnnemiDirection_AIR(Ennemi *e);
-int  collisionBB(player p, Ennemi e);
+int collisionBB(player p, Ennemi e);
 void EnnemyState(Ennemi *e, player p);
 void MoveEnnemy(Ennemi *e, player p);
 void DirectionRandom(Ennemi *e);
 void UpdateEnnemy(Ennemi e[], player *p, int nbEnnemi, SDL_Surface *screen);
+
 #endif

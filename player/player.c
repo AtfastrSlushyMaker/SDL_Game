@@ -384,156 +384,156 @@ void displayHealth(SDL_Surface *screen, player *p, image_lot1 bgIMG)
     SDL_BlitSurface(p->health.hpBar, NULL, screen, &p->health.hpBarPos);
 }
 
-/*void handleMovement(SDL_Surface *screen, player *p, Uint32 dt, Uint32 stop_time,int multiplayer);
+void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer)
 {
-   const Uint8 *keys = SDL_GetKeyState(NULL);
-   SDL_Event event;
+    const Uint8 *keys = SDL_GetKeyState(NULL);
+    SDL_Event event;
 
-   while (SDL_PollEvent(&event))
-   {
-       switch (event.type)
-       {
-       case SDL_KEYDOWN:
-           switch (event.key.keysym.sym)
-           {
-           case SDLK_d:
-               p1->isMoving = 1;
-               p1->direction = 0;
-               movePlayer(p1, dt);
-               if (keys[SDLK_d] && keys[SDLK_LSHIFT])
-               {
-                   if (p1->acceleration < 0.05)
-                       p1->acceleration += 0.05;
-               }
-               break;
-           case SDLK_q:
-               p1->isMoving = 1;
-               p1->direction = 1;
-               movePlayer(p1, dt);
-               if (keys[SDLK_q] && keys[SDLK_LSHIFT])
-               {
-                   if (p1->acceleration < 0.05)
-                       p1->acceleration += 0.05;
-               }
-               break;
-           case SDLK_z:
-               p1->isMoving = 1;
-               if (keys[SDLK_d] && keys[SDLK_z])
-               {
-                   p1->direction = 0;
-                   p1->up = 2;
-                   jumpPlayer(p1, screen, dt);
-                   p1->hasJumped = 1;
-               }
-               else if (keys[SDLK_q] && keys[SDLK_z])
-               {
-                   p1->direction = 1;
-                   p1->up = 2;
-                   jumpPlayer(p1, screen, dt);
-                   p1->hasJumped = 1;
-               }
-               else if (!p1->hasJumped)
-               {
-                   p1->up = 1;
-                   jumpPlayer(p1, screen, dt);
-               }
-               p1->hasJumped = 0;
-               break;
-           case SDLK_s:
-               p1->isMoving = 1;
-               crouchPlayer(p1);
-               break;
-           case SDLK_RIGHT:
-               p2->isMoving = 1;
-               p2->direction = 0;
-               movePlayer(p2, dt);
-               if (keys[SDLK_RIGHT] && keys[SDLK_RSHIFT])
-               {
-                   if (p2->acceleration < 0.05)
-                       p2->acceleration += 0.05;
-               }
-               break;
-           case SDLK_LEFT:
-               p2->isMoving = 1;
-               p2->direction = 1;
-               movePlayer(p2, dt);
-               if (keys[SDLK_LEFT] && keys[SDLK_RSHIFT])
-               {
-                   if (p2->acceleration < 0.05)
-                       p2->acceleration += 0.05;
-               }
-               break;
-           case SDLK_UP:
-               p2->isMoving = 1;
-               if (keys[SDLK_RIGHT] && keys[SDLK_UP])
-               {
-                   p2->direction = 0;
-                   p2->up = 2;
-                   jumpPlayer(p2, screen, dt);
-                   p2->hasJumped = 1;
-               }
-               else if (keys[SDLK_LEFT] && keys[SDLK_UP])
-                               {
-                   p2->direction = 1;
-                   p2->up = 2;
-                   jumpPlayer(p2, screen, dt);
-                   p2->hasJumped = 1;
-               }
-               else if (!p2->hasJumped)
-               {
-                   p2->up = 1;
-                   jumpPlayer(p2, screen, dt);
-               }
-               p2->hasJumped = 0;
-               break;
-           case SDLK_DOWN:
-               p2->isMoving = 1;
-               crouchPlayer(p2);
-               break;
-           }
-           break;
-            case SDL_MOUSEBUTTONDOWN:
-                       player1.shoot = 1;
-                       break;
-                   case SDL_MOUSEBUTTONUP:
-                       player1.shoot = 0;
-                       break;
-       case SDL_KEYUP:
-           switch (event.key.keysym.sym)
-           {
-           case SDLK_LSHIFT:
-               p1->acceleration = 0;
-               p2->acceleration = 0;
-               break;
-           case SDLK_d:
-               p1->isMoving = 0;
-               p1->acceleration -= 0.01;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_q:
-               p1->isMoving = 0;
-               p1->acceleration -= 0.01;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_s:
-               p1->isMoving = 0;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_RIGHT:
-               p2->isMoving = 0;
-               p2->acceleration -= 0.01;
-               stopPlayer(p2, &stop_time);
-               break;
-           case SDLK_LEFT:
-               p2->isMoving = 0;
-               p2->acceleration -= 0.01;
-               stopPlayer(p2, &stop_time);
-               break;
-           case SDLK_DOWN:
-               p2->isMoving = 0;
-               stopPlayer(p2, &stop_time);
-               break;
-           }
-       }
-   }
-}*/
+    while (SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_d:
+                p1->isMoving = 1;
+                p1->direction = 0;
+                movePlayer(p1, dt);
+                if (keys[SDLK_d] && keys[SDLK_LSHIFT])
+                {
+                    if (p1->acceleration < 0.05)
+                        p1->acceleration += 0.05;
+                }
+                break;
+            case SDLK_q:
+                p1->isMoving = 1;
+                p1->direction = 1;
+                movePlayer(p1, dt);
+                if (keys[SDLK_q] && keys[SDLK_LSHIFT])
+                {
+                    if (p1->acceleration < 0.05)
+                        p1->acceleration += 0.05;
+                }
+                break;
+            case SDLK_z:
+                p1->isMoving = 1;
+                if (keys[SDLK_d] && keys[SDLK_z])
+                {
+                    p1->direction = 0;
+                    p1->up = 2;
+                    jumpPlayer(p1, screen, dt);
+                    p1->hasJumped = 1;
+                }
+                else if (keys[SDLK_q] && keys[SDLK_z])
+                {
+                    p1->direction = 1;
+                    p1->up = 2;
+                    jumpPlayer(p1, screen, dt);
+                    p1->hasJumped = 1;
+                }
+                else if (!p1->hasJumped)
+                {
+                    p1->up = 1;
+                    jumpPlayer(p1, screen, dt);
+                }
+                p1->hasJumped = 0;
+                break;
+            case SDLK_s:
+                p1->isMoving = 1;
+                crouchPlayer(p1);
+                break;
+            case SDLK_RIGHT:
+                p2->isMoving = 1;
+                p2->direction = 0;
+                movePlayer(p2, dt);
+                if (keys[SDLK_RIGHT] && keys[SDLK_RSHIFT])
+                {
+                    if (p2->acceleration < 0.05)
+                        p2->acceleration += 0.05;
+                }
+                break;
+            case SDLK_LEFT:
+                p2->isMoving = 1;
+                p2->direction = 1;
+                movePlayer(p2, dt);
+                if (keys[SDLK_LEFT] && keys[SDLK_RSHIFT])
+                {
+                    if (p2->acceleration < 0.05)
+                        p2->acceleration += 0.05;
+                }
+                break;
+            case SDLK_UP:
+                p2->isMoving = 1;
+                if (keys[SDLK_RIGHT] && keys[SDLK_UP])
+                {
+                    p2->direction = 0;
+                    p2->up = 2;
+                    jumpPlayer(p2, screen, dt);
+                    p2->hasJumped = 1;
+                }
+                else if (keys[SDLK_LEFT] && keys[SDLK_UP])
+                {
+                    p2->direction = 1;
+                    p2->up = 2;
+                    jumpPlayer(p2, screen, dt);
+                    p2->hasJumped = 1;
+                }
+                else if (!p2->hasJumped)
+                {
+                    p2->up = 1;
+                    jumpPlayer(p2, screen, dt);
+                }
+                p2->hasJumped = 0;
+                break;
+            case SDLK_DOWN:
+                p2->isMoving = 1;
+                crouchPlayer(p2);
+                break;
+            }
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            p1->shoot = 1;
+            break;
+        case SDL_MOUSEBUTTONUP:
+            p1->shoot = 0;
+            break;
+        case SDL_KEYUP:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_LSHIFT:
+                p1->acceleration = 0;
+                p2->acceleration = 0;
+                break;
+            case SDLK_d:
+                p1->isMoving = 0;
+                p1->acceleration -= 0.01;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_q:
+                p1->isMoving = 0;
+                p1->acceleration -= 0.01;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_s:
+                p1->isMoving = 0;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_RIGHT:
+                p2->isMoving = 0;
+                p2->acceleration -= 0.01;
+                stopPlayer(p2, &stop_time);
+                break;
+            case SDLK_LEFT:
+                p2->isMoving = 0;
+                p2->acceleration -= 0.01;
+                stopPlayer(p2, &stop_time);
+                break;
+            case SDLK_DOWN:
+                p2->isMoving = 0;
+                stopPlayer(p2, &stop_time);
+                break;
+            }
+        }
+    }
+}
