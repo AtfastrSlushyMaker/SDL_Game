@@ -7,6 +7,7 @@
 #include "menu/menu.h"
 #include "game.h"
 #include "settings/settings.h"
+#include "enemy/enemy.h"
 
 int main()
 {
@@ -104,7 +105,7 @@ int main()
     // printf("x = %d, y = %d\n", mouseX, mouseY);
     switch (level)
     {
-    case -1:
+    case -1: // SETTINGS
       if (!settings_music_on)
       {
         play_music(settings_music, "music/settings/(8-bit NES-style) Floater Land (Buoy Base Galaxy) Super Mario Galaxy.mp3", volume);
@@ -145,7 +146,7 @@ int main()
       }
 
       break;
-    case 0:
+    case 0: // MENU
 
       if (!menu_music_on)
       {
@@ -197,6 +198,14 @@ int main()
       hover_image(&multiplayer, screen, multiplayer_var, mouseX, mouseY);
       hover_image(&load_game, screen, load_game_var, mouseX, mouseY);
       hover_image(&quit, screen, quit_var, mouseX, mouseY);
+      break;
+    case 1: // LEVEL 1
+
+      break;
+    case 2: // LEVEL 2
+
+      break;
+    case 3: // LEVEL 3
 
       break;
     default:

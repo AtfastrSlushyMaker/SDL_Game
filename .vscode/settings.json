@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "sdl_ttf.h": "c",
-    "menu.h": "c"
+    "menu.h": "c",
+    "settings.h": "c"
   }
 }
