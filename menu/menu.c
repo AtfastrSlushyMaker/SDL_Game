@@ -38,13 +38,15 @@ void hover_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y)
   }
 }
 
-void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL_Event event, int level, int *current_level, int *game)
+void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL_Event event, int level, int *current_level, int *game, int *multiplayer)
 {
   if (event.button.button == SDL_BUTTON_LEFT && (IMAGE->pos.x <= x && IMAGE->pos.x + IMAGE->pos.w >= x && IMAGE->pos.y <= y && IMAGE->pos.y + IMAGE->pos.h >= y))
   {
     display_image(&var, screen);
     if (level == -10)
       *game = 0;
+    else if (level == 69)
+      *multiplayer = 1;
     else
       *current_level = level;
   }

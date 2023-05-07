@@ -5,6 +5,7 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
 #include "../game.h"
+#include "../player/player.h"
 
 /**
  * @file enemy.h
@@ -16,17 +17,6 @@
  */
 
 //--------------------ENNEMI--------------------
-/**
- * @struct AABB
- * @brief Collison Bounding Box structure
- *
- */
-
-typedef struct
-{
-  SDL_Rect collision; /*!<Rectangle*/
-} AABB;
-
 /**
  * @struct state
  * @brief state structure
@@ -58,36 +48,6 @@ typedef struct
   int fly;         /*!<Int*/
 } Ennemi;
 
-//--------------------PLAYER--------------------
-typedef struct
-{
-  int playerScore;
-  SDL_Rect scoreBarPos;
-  SDL_Surface *scoreBar;
-} playerScore;
-typedef struct
-{
-  int playerHP;
-  SDL_Rect hpBarPos;
-  SDL_Surface *hpBar;
-} playerHealth;
-typedef struct
-{
-  SDL_Surface *currentPlayerState;
-  SDL_Surface *player[6][6];
-  int direction;
-} playerImage;
-typedef struct
-{
-  SDL_Rect playerPos;
-  playerScore score;
-  playerHealth health;
-  playerImage img;
-  AABB box_AABB;
-  int shoot;
-  double speed, acceleration;
-} player;
-
 //--------------------Declaration--------------------
 void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mode, int fly);
 void DisplayEnnemi(Ennemi e, SDL_Surface *screen);
@@ -95,7 +55,7 @@ void moveX(Ennemi *e);
 void moveY(Ennemi *e);
 void EnnemiDirection_GROUND(Ennemi *e, player p);
 void EnnemiDirection_AIR(Ennemi *e);
-int collisionBB(player p, Ennemi e);
+int  collisionBB(player p, Ennemi e);
 void EnnemyState(Ennemi *e, player p);
 void MoveEnnemy(Ennemi *e, player p);
 void DirectionRandom(Ennemi *e);

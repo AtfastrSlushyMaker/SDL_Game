@@ -3,7 +3,7 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_ttf.h>
 #include "enemy.h"
-
+#include "../player/player.h"
 #include "../game.h"
 /**
  * @file enemy.c
