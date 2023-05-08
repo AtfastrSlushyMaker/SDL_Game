@@ -6,6 +6,7 @@
 #include <SDL/SDL_ttf.h>
 #include "../game.h"
 #include "../player/player.h"
+#include "../enigmetxt/enigmetf.h"
 
 /**
  * @file enemy.h
@@ -61,6 +62,6 @@ int collisionBB(player p, Ennemi e);
 void EnnemyState(Ennemi *e, player p);
 void MoveEnnemy(Ennemi *e, player p);
 void DirectionRandom(Ennemi *e);
-void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen);
+void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen,enigmetf eng);
 void scroll_enemy(Ennemi *E, int direction, int step);
 #endif

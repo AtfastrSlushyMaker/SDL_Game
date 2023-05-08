@@ -12,7 +12,7 @@
 #include "background/background.h"
 #include "minimap/minimap.h"
 #include "tic_tac_toe/tic_tac_toe.h"
-
+#include "enigmetxt/enigmetf.h"
 int main()
 {
   // SCREEN
@@ -134,7 +134,10 @@ int main()
 
   // INISIALISATION MINIMAP
   initminimap(&m1);
-
+  // INITIALISATION ENIGME TXT
+  enigmetf e;
+  char nomfichier[50] ="questions_rep_vrairep.txt";
+  InitEnigme( &e, nomfichier);
   while (game)
   {
     SDL_GetMouseState(&mouseX, &mouseY);
@@ -246,13 +249,13 @@ int main()
       animatePlayer(&player1, stop_time);
       if (multiplayer)
       {
-        printf("jawna boobs");
+        
         displayPlayer(screen, player2);
       }
 
       handleMovement(screen, &player1, &player2, dt, stop_time, 1, game, level);
-      UpdateEnnemy(&enemi_level_1[0], &player1, screen);
-      UpdateEnnemy(&enemi_level_1[1], &player1, screen);
+      UpdateEnnemy(&enemi_level_1[0], &player1, screen,e);
+      UpdateEnnemy(&enemi_level_1[1], &player1, screen,e);
       scrolling(&bg_lvl1, &player1, 0);
       scroll_enemy(&enemi_level_1[0], player1.direction, player1.velocity);
       scroll_enemy(&enemi_level_1[1], player1.direction, player1.velocity);

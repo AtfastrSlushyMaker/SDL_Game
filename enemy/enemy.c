@@ -7,6 +7,7 @@
 #include "../game.h"
 #include <time.h>
 #include "../tic_tac_toe/tic_tac_toe.h"
+#include "../enigmetxt/enigmetf.h"
 /**
  * @file enemy.c
  * @brief contains all functions for the game
@@ -291,28 +292,35 @@ void DirectionRandom(Ennemi *e)
   }
 }
 
-void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen)
+void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen, enigmetf eng)
 {
   int r = rand() % 3;
   if (collisionBB(*p, *e))
   {
-    switch (r)
+    if (!p->IS_HIT)
     {
-    case 0:
 
-      break;
-    case 1:
+      switch (r)
+      {
+      case 0:
+        enigme(eng, screen);
 
-      break;
-    case 2:
+        break;
+      case 1:
 
-      break;
-    default:
-      p->score.playerScore -= 100;
-      break;
+        break;
+      case 2:
+
+        break;
+      default:
+        p->score.playerScore -= 100;
+        break;
+      }
+      p->IS_HIT = 1;
     }
   }
-
+  else
+    p->IS_HIT = 0;
   switch (e->fly)
   {
   case 1:

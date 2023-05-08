@@ -7,6 +7,7 @@
 #include <math.h>
 #include "../game.h"
 #include "player.h"
+
 void initPlayer1(player *p)
 {
     // move right
