@@ -405,7 +405,7 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
         switch (event.type)
         {
         case SDL_QUIT:
-        break;
+            SDL_Quit();
             break;
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym)
@@ -553,4 +553,13 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
             }
         }
     }
+    p1->box_AABB.collision.x = p1->playerPos.x;
+    p1->box_AABB.collision.y = p1->playerPos.y;
+    p1->box_AABB.collision.w = p1->playerPos.w;
+    p1->box_AABB.collision.h = p1->playerPos.h;
+
+    p2->box_AABB.collision.x = p2->playerPos.x;
+    p2->box_AABB.collision.y = p2->playerPos.y;
+    p2->box_AABB.collision.w = p2->playerPos.w;
+    p2->box_AABB.collision.h = p2->playerPos.h;
 }

@@ -44,6 +44,11 @@ int main()
   int multiplayer = 0;
   Uint32 dt, t_prev, stop_time;
 
+  // ENEMIES
+  Ennemi enemi_level_1[2];
+  Ennemi enemi_level_2[2];
+  Ennemi enemi_level_3[2];
+
   // MUSIC
   Mix_Music *menu_music = NULL;
   int menu_music_on = 0;
@@ -82,7 +87,7 @@ int main()
   TTF_Init();
   // INITALISATION PLAYERS
   initPlayer1(&player1);
-  initPlayer2(&player2);
+  // initPlayer2(&player2);
 
   // INITIALISATION MENU
   init_image(&bg_menu, "images/menu/background_without_boat.png", 0, 0);
@@ -113,12 +118,16 @@ int main()
   init_image(&back_arrow, "images/settings/back_arrow.png", 50, SCREEN_H / 2 - 50);
 
   // INTIALISATION LEVELS
-  initBackground(&bg_lvl1, "images/background/Background_LVL_1 .png", "images/background/Background_LVL_1 .png");
+  initBackground(&bg_lvl1, "images/background/Background_LVL_1.png", "images/background/Background_LVL_1.png");
+
+  // INITIALISATION ENEMIES
+  initEnnemi(&enemi_level_1[0], "images/enemies/level1/e1/tree_left.png", "images/enemies/level1/e1/tree_right.png", 2000, 500, 0, 1, 2500, 0);
+  initEnnemi(&enemi_level_1[1], "images/enemies/level1/e2/rajel_9ar3a_left.png", "images/enemies/level1/e2/rajel_9ar3a_right.png", 3000, 400, 1, 0, 1000, 0);
   SDL_EnableKeyRepeat(5, 5);
   while (game)
   {
     SDL_GetMouseState(&mouseX, &mouseY);
-     //printf("x = %d, y = %d\n", mouseX, mouseY);
+    // printf("x = %d, y = %d\n", mouseX, mouseY);
     switch (level)
     {
     case -1: // SETTINGS
@@ -218,19 +227,23 @@ int main()
     case 1: // LEVEL 1
       t_prev = SDL_GetTicks();
       displayLevel(bg_lvl1, screen);
-
       displayPlayer(screen, player1);
-      displayScore(screen, &player1);
-      // displayHealth(screen, &player1, IMAGE_BACKGROUND_LEVEL_1);
+      // displayScore(screen, &player1);
+      //  displayHealth(screen, &player1, IMAGE_BACKGROUND_LEVEL_1);
       animatePlayer(&player1, stop_time);
       if (multiplayer)
       {
         printf("jawna boobs");
         displayPlayer(screen, player2);
       }
-        handleMovement(screen, &player1, &player2, dt, stop_time, 1,game,level);
-        scrolling(&bg_lvl1,&player1,0);
-     
+
+      handleMovement(screen, &player1, &player2, dt, stop_time, 1, game, level);
+      UpdateEnnemy(&enemi_level_1[0], &player1, screen);
+      UpdateEnnemy(&enemi_level_1[1], &player1, screen);
+      scrolling(&bg_lvl1, &player1, 0);
+      scroll_enemy(&enemi_level_1[0], player1.direction, player1.velocity);
+      scroll_enemy(&enemi_level_1[1], player1.direction, player1.velocity);
+
       dt = SDL_GetTicks() - t_prev;
 
       break;
@@ -247,7 +260,6 @@ int main()
     }
     SDL_Flip(screen);
   }
-  
 
   // FREE IMAGES
 

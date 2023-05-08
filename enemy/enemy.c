@@ -5,6 +5,7 @@
 #include "enemy.h"
 #include "../player/player.h"
 #include "../game.h"
+#include <time.h>
 /**
  * @file enemy.c
  * @brief contains all functions for the game
@@ -19,7 +20,7 @@
  * @param Ennemi e
  * @return void
  */
-void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mode, int fly)
+void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mode, int fly, int max_pos, int min_pos)
 {
   e->url_left = url_left;
   e->url_right = url_right;
@@ -39,6 +40,14 @@ void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mo
   e->state.s2 = 300;
   e->state.distance = 0;
   e->fly = fly;
+
+  e->max_pos = max_pos;
+  e->min_pos = min_pos;
+
+  e->box_AABB.collision.x = e->img.pos.x;
+  e->box_AABB.collision.y = e->img.pos.y;
+  e->box_AABB.collision.w = e->img.pos.w;
+  e->box_AABB.collision.h = e->img.pos.h;
 }
 /**
  * @brief afficher ennemi
@@ -267,8 +276,8 @@ void MoveEnnemy(Ennemi *e, player p)
 void DirectionRandom(Ennemi *e)
 {
   e->speed = 1;
-  int PosMax = SCREEN_W - e->img.pos.w;
-  int PosMin = 0;
+  int PosMax = e->max_pos - e->img.pos.w;
+  int PosMin = e->min_pos + e->img.pos.w;
   if (e->img.pos.x > PosMax)
   {
     e->direction = 1;
@@ -280,34 +289,60 @@ void DirectionRandom(Ennemi *e)
     e->img.url = e->url_right;
   }
 }
-void UpdateEnnemy(Ennemi e[], player *p, int nbEnnemi, SDL_Surface *screen)
-{
-  int i;
-  for (i = 0; i < nbEnnemi; i++)
-  {
-    if (collisionBB(*p, e[i]) == 1)
-    {
-      p->health.playerHP--;
-      p->score.playerScore -= 10;
-    }
 
-    switch (e[i].fly)
+void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen)
+{
+  int r = rand() % 3;
+  if (collisionBB(*p, *e))
+  {
+    switch (r)
     {
-    case 1:
-      moveY(&e[i]);
-      break;
     case 0:
-      switch (e[i].mode)
-      {
-      case 0:
-        DirectionRandom(&e[i]);
-        break;
-      case 1:
-        MoveEnnemy(&e[i], *p);
-        break;
-      }
+
+      break;
+    case 1:
+
+      break;
+    case 2:
+      break;
+    default:
+      p->score.playerScore -= 100;
       break;
     }
-    DisplayEnnemi(e[i], screen);
+  }
+
+  switch (e->fly)
+  {
+  case 1:
+    moveY(e);
+    break;
+  case 0:
+    switch (e->mode)
+    {
+    case 0:
+      DirectionRandom(e);
+      break;
+    case 1:
+      MoveEnnemy(e, *p);
+      break;
+    }
+    break;
+  }
+  DisplayEnnemi(*e, screen);
+}
+
+void scroll_enemy(Ennemi *E, int direction, int step)
+{
+  if (direction == 1)
+  {
+    E->img.pos.x += step;
+    E->max_pos += step;
+    E->min_pos += step;
+  }
+  else if (direction == 0)
+  {
+    E->img.pos.x -= step;
+    E->max_pos -= step;
+    E->min_pos -= step;
   }
 }

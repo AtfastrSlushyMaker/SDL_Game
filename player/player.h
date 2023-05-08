@@ -51,6 +51,7 @@ typedef struct
   int IS_HIT;
   int multiplayer;
 } player;
+
 void initPlayer1(player *p);
 void initPlayer2(player *p);
 void displayPlayer(SDL_Surface *screen, player p);
@@ -59,7 +60,7 @@ void stopPlayer(player *p, Uint32 *stop_time);
 void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt);
 void crouchPlayer(player *p);
 void animatePlayer(player *p, Uint32 stop_time);
-void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer,int game,int level);
+void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer, int game, int level);
 void initScore(player *p);
 void displayScore(SDL_Surface *screen, player *p);
 void libPlayer(player *p);

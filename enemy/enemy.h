@@ -46,18 +46,21 @@ typedef struct
   int speed;       /*!<Int*/
   int mode;        /*!<Int*/
   int fly;         /*!<Int*/
+  int max_pos;     /*!<SDL_Rect*/
+  int min_pos;     /*!<SDL_Rect*/
 } Ennemi;
 
 //--------------------Declaration--------------------
-void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mode, int fly);
+void initEnnemi(Ennemi *e, char *url_left, char *url_right, int x, int y, int mode, int fly, int max_pos, int min_pos);
 void DisplayEnnemi(Ennemi e, SDL_Surface *screen);
 void moveX(Ennemi *e);
 void moveY(Ennemi *e);
 void EnnemiDirection_GROUND(Ennemi *e, player p);
 void EnnemiDirection_AIR(Ennemi *e);
-int  collisionBB(player p, Ennemi e);
+int collisionBB(player p, Ennemi e);
 void EnnemyState(Ennemi *e, player p);
 void MoveEnnemy(Ennemi *e, player p);
 void DirectionRandom(Ennemi *e);
-void UpdateEnnemy(Ennemi e[], player *p, int nbEnnemi, SDL_Surface *screen);
+void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen);
+void scroll_enemy(Ennemi *E, int direction, int step);
 #endif
