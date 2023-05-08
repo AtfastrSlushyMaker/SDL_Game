@@ -31,6 +31,7 @@ void scrolling(background *bg, player *p,int col)
     if (( bg->camera.x <5000- bg->camera.w)  &&(p->playerPos.x>= bg->bgPos.x))
     {
       bg->camera.x += speed;
+      
     }
   }
   if (p->direction == 1)
