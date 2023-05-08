@@ -6,6 +6,7 @@
 #include "../player/player.h"
 #include "../game.h"
 #include <time.h>
+#include "../tic_tac_toe/tic_tac_toe.h"
 /**
  * @file enemy.c
  * @brief contains all functions for the game
@@ -304,6 +305,7 @@ void UpdateEnnemy(Ennemi *e, player *p, SDL_Surface *screen)
 
       break;
     case 2:
+
       break;
     default:
       p->score.playerScore -= 100;

@@ -10,6 +10,8 @@
 #include "enemy/enemy.h"
 #include "player/player.h"
 #include "background/background.h"
+#include "minimap/minimap.h"
+#include "tic_tac_toe/tic_tac_toe.h"
 
 int main()
 {
@@ -48,6 +50,11 @@ int main()
   Ennemi enemi_level_1[2];
   Ennemi enemi_level_2[2];
   Ennemi enemi_level_3[2];
+
+  // MINIMAP
+
+  Minimap m1;
+  time_t temps_lancement = time(NULL);
 
   // MUSIC
   Mix_Music *menu_music = NULL;
@@ -124,6 +131,10 @@ int main()
   initEnnemi(&enemi_level_1[0], "images/enemies/level1/e1/tree_left.png", "images/enemies/level1/e1/tree_right.png", 2000, 500, 0, 1, 2500, 0);
   initEnnemi(&enemi_level_1[1], "images/enemies/level1/e2/rajel_9ar3a_left.png", "images/enemies/level1/e2/rajel_9ar3a_right.png", 3000, 400, 1, 0, 1000, 0);
   SDL_EnableKeyRepeat(5, 5);
+
+  // INISIALISATION MINIMAP
+  initminimap(&m1);
+
   while (game)
   {
     SDL_GetMouseState(&mouseX, &mouseY);
@@ -227,6 +238,8 @@ int main()
     case 1: // LEVEL 1
       t_prev = SDL_GetTicks();
       displayLevel(bg_lvl1, screen);
+       afficher_temps(screen,temps_lancement);
+
       displayPlayer(screen, player1);
       // displayScore(screen, &player1);
       //  displayHealth(screen, &player1, IMAGE_BACKGROUND_LEVEL_1);
@@ -244,9 +257,13 @@ int main()
       scroll_enemy(&enemi_level_1[0], player1.direction, player1.velocity);
       scroll_enemy(&enemi_level_1[1], player1.direction, player1.velocity);
 
-      dt = SDL_GetTicks() - t_prev;
+      MAJMinimap(player1.playerPos, &m1, bg_lvl1.camera, 10);
+      MAJMinimap_enemie(enemi_level_1[0].box_AABB.collision, &m1, bg_lvl1.camera, 10);
+      MAJMinimap_enemie2(enemi_level_1[1].box_AABB.collision, &m1, bg_lvl1.camera, 10);
 
-      break;
+      afficheminimap(m1, screen);
+
+      dt = SDL_GetTicks() - t_prev;
     case 2: // LEVEL 2
 
       break;

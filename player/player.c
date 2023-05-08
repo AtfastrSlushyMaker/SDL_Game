@@ -199,7 +199,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
                 p->img.currentPlayerState = p->img.player[2][i];
                 p->playerPos.y = prev_y - jumpHeight + i * jumpHeight / 2;
                 SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
-                SDL_Delay(150);
+                
             }
             p->img.currentPlayerState = p->img.player[4][0];
             break;
@@ -209,7 +209,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
                 p->img.currentPlayerState = p->img.player[2][i];
                 p->playerPos.y = prev_y - jumpHeight + (i - 3) * jumpHeight / 2;
                 SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
-                SDL_Delay(150);
+                
             }
             p->img.currentPlayerState = p->img.player[5][0];
             break;
@@ -219,7 +219,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
             p->playerPos.y += gravity;
             gravity += 0.5;
             SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
-            SDL_Delay(150);
+            
         }
 
         p->playerPos.y = prev_y;
@@ -478,6 +478,7 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
                 {
                     if (p2->acceleration < 0.05)
                         p2->acceleration += 0.05;
+                        
                 }
                 break;
             case SDLK_UP:

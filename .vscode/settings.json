@@ -2,6 +2,8 @@
   "files.associations": {
     "sdl_ttf.h": "c",
     "menu.h": "c",
-    "settings.h": "c"
+    "settings.h": "c",
+    "sdl_image.h": "c",
+    "sdl_mixer.h": "c"
   }
 }
