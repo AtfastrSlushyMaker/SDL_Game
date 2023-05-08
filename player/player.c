@@ -10,55 +10,125 @@
 void initPlayer1(player *p)
 {
     // move right
-    p->img.player[0][0] = IMG_Load("images/lot1/Character/right/right1.png");
-    p->img.player[0][1] = IMG_Load("images/lot1/Character/right/right2.png");
-    p->img.player[0][2] = IMG_Load("images/lot1/Character/right/right3.png");
-    p->img.player[0][3] = IMG_Load("images/lot1/Character/right/right4.png");
-    p->img.player[0][4] = IMG_Load("images/lot1/Character/right/right5.png");
-    p->img.player[0][5] = IMG_Load("images/lot1/Character/right/right6.png");
+    p->img.player[0][0] = IMG_Load("images/player/player1/right/right1.png");
+    p->img.player[0][1] = IMG_Load("images/player/player1/right/right2.png");
+    p->img.player[0][2] = IMG_Load("images/player/player1/right/right3.png");
+    p->img.player[0][3] = IMG_Load("images/player/player1/right/right4.png");
+    p->img.player[0][4] = IMG_Load("images/player/player1/right/right5.png");
+    p->img.player[0][5] = IMG_Load("images/player/player1/right/right6.png");
     // move left
-    p->img.player[1][0] = IMG_Load("images/lot1/Character/left/left1.png");
-    p->img.player[1][1] = IMG_Load("images/lot1/Character/left/left2.png");
-    p->img.player[1][2] = IMG_Load("images/lot1/Character/left/left3.png");
-    p->img.player[1][3] = IMG_Load("images/lot1/Character/left/left4.png");
-    p->img.player[1][4] = IMG_Load("images/lot1/Character/left/left5.png");
-    p->img.player[1][5] = IMG_Load("images/lot1/Character/left/left6.png");
+    p->img.player[1][0] = IMG_Load("images/player/player1/left/left1.png");
+    p->img.player[1][1] = IMG_Load("images/player/player1/left/left2.png");
+    p->img.player[1][2] = IMG_Load("images/player/player1/left/left3.png");
+    p->img.player[1][3] = IMG_Load("images/player/player1/left/left4.png");
+    p->img.player[1][4] = IMG_Load("images/player/player1/left/left5.png");
+    p->img.player[1][5] = IMG_Load("images/player/player1/left/left6.png");
     // jump
-    p->img.player[2][0] = IMG_Load("images/lot1/Character/jump/jump1R.png");
-    p->img.player[2][1] = IMG_Load("images/lot1/Character/jump/jump2R.png");
-    p->img.player[2][2] = IMG_Load("images/lot1/Character/jump/jump3R.png");
-    p->img.player[2][3] = IMG_Load("images/lot1/Character/jump/jump1L.png");
-    p->img.player[2][4] = IMG_Load("images/lot1/Character/jump/jump2L.png");
-    p->img.player[2][5] = IMG_Load("images/lot1/Character/jump/jump3L.png");
+    p->img.player[2][0] = IMG_Load("images/player/player1/jump/jump1R.png");
+    p->img.player[2][1] = IMG_Load("images/player/player1/jump/jump2R.png");
+    p->img.player[2][2] = IMG_Load("images/player/player1/jump/jump3R.png");
+    p->img.player[2][3] = IMG_Load("images/player/player1/jump/jump1L.png");
+    p->img.player[2][4] = IMG_Load("images/player/player1/jump/jump2L.png");
+    p->img.player[2][5] = IMG_Load("images/player/player1/jump/jump3L.png");
     // crouch
-    p->img.player[3][0] = IMG_Load("images/lot1/Character/crouchR.png");
-    p->img.player[3][1] = IMG_Load("images/lot1/Character/crouchL.png");
+    p->img.player[3][0] = IMG_Load("images/player/player1/crouchR.png");
+    p->img.player[3][1] = IMG_Load("images/player/player1/crouchL.png");
     // idle right
-    p->img.player[4][0] = IMG_Load("images/lot1/Character/Idle/right/IdleR.png");
-    p->img.player[4][1] = IMG_Load("images/lot1/Character/Idle/right/IdleR1.png");
-    p->img.player[4][2] = IMG_Load("images/lot1/Character/Idle/right/IdleR2.png");
-    p->img.player[4][3] = IMG_Load("images/lot1/Character/Idle/right/IdleR3.png");
-    p->img.player[4][4] = IMG_Load("images/lot1/Character/Idle/right/IdleR4.png");
-    p->img.player[4][5] = IMG_Load("images/lot1/Character/Idle/right/IdleR5.png");
-    p->img.player[4][6] = IMG_Load("images/lot1/Character/Idle/right/IdleR6.png");
-    p->img.player[4][7] = IMG_Load("images/lot1/Character/Idle/right/IdleR7.png");
-    p->img.player[4][8] = IMG_Load("images/lot1/Character/Idle/right/IdleR8.png");
+    p->img.player[4][0] = IMG_Load("images/player/player1/Idle/right/IdleR.png");
+    p->img.player[4][1] = IMG_Load("images/player/player1/Idle/right/IdleR1.png");
+    p->img.player[4][2] = IMG_Load("images/player/player1/Idle/right/IdleR2.png");
+    p->img.player[4][3] = IMG_Load("images/player/player1/Idle/right/IdleR3.png");
+    p->img.player[4][4] = IMG_Load("images/player/player1/Idle/right/IdleR4.png");
+    p->img.player[4][5] = IMG_Load("images/player/player1/Idle/right/IdleR5.png");
+    p->img.player[4][6] = IMG_Load("images/player/player1/Idle/right/IdleR6.png");
+    p->img.player[4][7] = IMG_Load("images/player/player1/Idle/right/IdleR7.png");
+    p->img.player[4][8] = IMG_Load("images/player/player1/Idle/right/IdleR8.png");
     // idle left
-    p->img.player[5][0] = IMG_Load("images/lot1/Character/Idle/left/IdleL.png");
-    p->img.player[5][1] = IMG_Load("images/lot1/Character/Idle/left/IdleL1.png");
-    p->img.player[5][2] = IMG_Load("images/lot1/Character/Idle/left/IdleL2.png");
-    p->img.player[5][3] = IMG_Load("images/lot1/Character/Idle/left/IdleL3.png");
-    p->img.player[5][4] = IMG_Load("images/lot1/Character/Idle/left/IdleL4.png");
-    p->img.player[5][5] = IMG_Load("images/lot1/Character/Idle/left/IdleL5.png");
-    p->img.player[5][6] = IMG_Load("images/lot1/Character/Idle/left/IdleL6.png");
-    p->img.player[5][7] = IMG_Load("images/lot1/Character/Idle/left/IdleL7.png");
-    p->img.player[5][8] = IMG_Load("images/lot1/Character/Idle/left/IdleL8.png");
+    p->img.player[5][0] = IMG_Load("images/player/player1/Idle/left/IdleL.png");
+    p->img.player[5][1] = IMG_Load("images/player/player1/Idle/left/IdleL1.png");
+    p->img.player[5][2] = IMG_Load("images/player/player1/Idle/left/IdleL2.png");
+    p->img.player[5][3] = IMG_Load("images/player/player1/Idle/left/IdleL3.png");
+    p->img.player[5][4] = IMG_Load("images/player/player1/Idle/left/IdleL4.png");
+    p->img.player[5][5] = IMG_Load("images/player/player1/Idle/left/IdleL5.png");
+    p->img.player[5][6] = IMG_Load("images/player/player1/Idle/left/IdleL6.png");
+    p->img.player[5][7] = IMG_Load("images/player/player1/Idle/left/IdleL7.png");
+    p->img.player[5][8] = IMG_Load("images/player/player1/Idle/left/IdleL8.png");
+    p->img.currentPlayerState = p->img.player[4][0];
+    p->direction = -1;
+    p->playerPos.x = 600;
+    p->playerPos.y = 380;
+    p->playerPos.w = p->img.currentPlayerState->w;
+    p->playerPos.h = p->img.currentPlayerState->h;
+    p->velocity = 5;
+    p->acceleration = 0;
+    p->up = 0;
+    p->down = 0;
+    p->isMoving = 0;
+    p->IS_HIT = 0;
+    p->multiplayer = 0;
+    p->hasJumped = 0;
+    p->health.playerHP = 10;
+    p->score.playerScore = 1000;
+    p->box_AABB.collision.x = p->playerPos.x;
+    p->box_AABB.collision.y = p->playerPos.y;
+    p->box_AABB.collision.h = p->playerPos.h;
+    p->box_AABB.collision.w = p->playerPos.w;
+}
+
+void initPlayer2(player *p)
+{
+
+    // move right
+    p->img.player[0][0] = IMG_Load("images/player/player2/right/right1.png");
+    p->img.player[0][1] = IMG_Load("images/player/player2/right/right2.png");
+    p->img.player[0][2] = IMG_Load("images/player/player2/right/right3.png");
+    p->img.player[0][3] = IMG_Load("images/player/player2/right/right4.png");
+    p->img.player[0][4] = IMG_Load("images/player/player2/right/right5.png");
+    p->img.player[0][5] = IMG_Load("images/player/player2/right/right6.png");
+    // move left
+    p->img.player[1][0] = IMG_Load("images/player/player2/left/left1.png");
+    p->img.player[1][1] = IMG_Load("images/player/player2/left/left2.png");
+    p->img.player[1][2] = IMG_Load("images/player/player2/left/left3.png");
+    p->img.player[1][3] = IMG_Load("images/player/player2/left/left4.png");
+    p->img.player[1][4] = IMG_Load("images/player/player2/left/left5.png");
+    p->img.player[1][5] = IMG_Load("images/player/player2/left/left6.png");
+    // jump
+    p->img.player[2][0] = IMG_Load("images/player/player2/jump/jump1R.png");
+    p->img.player[2][1] = IMG_Load("images/player/player2/jump/jump2R.png");
+    p->img.player[2][2] = IMG_Load("images/player/player2/jump/jump3R.png");
+    p->img.player[2][3] = IMG_Load("images/player/player2/jump/jump1L.png");
+    p->img.player[2][4] = IMG_Load("images/player/player2/jump/jump2L.png");
+    p->img.player[2][5] = IMG_Load("images/player/player2/jump/jump3L.png");
+    // crouch
+    p->img.player[3][0] = IMG_Load("images/player/player2/crouchR.png");
+    p->img.player[3][1] = IMG_Load("images/player/player2/crouchL.png");
+    // idle right
+    p->img.player[4][0] = IMG_Load("images/player/player2/Idle/right/IdleR.png");
+    p->img.player[4][1] = IMG_Load("images/player/player2/Idle/right/IdleR1.png");
+    p->img.player[4][2] = IMG_Load("images/player/player2/Idle/right/IdleR2.png");
+    p->img.player[4][3] = IMG_Load("images/player/player2/Idle/right/IdleR3.png");
+    p->img.player[4][4] = IMG_Load("images/player/player2/Idle/right/IdleR4.png");
+    p->img.player[4][5] = IMG_Load("images/player/player2/Idle/right/IdleR5.png");
+    p->img.player[4][6] = IMG_Load("images/player/player2/Idle/right/IdleR6.png");
+    p->img.player[4][7] = IMG_Load("images/player/player2/Idle/right/IdleR7.png");
+    p->img.player[4][8] = IMG_Load("images/player/player2/Idle/right/IdleR8.png");
+    // idle left
+    p->img.player[5][0] = IMG_Load("images/player/player2/Idle/left/IdleL.png");
+    p->img.player[5][1] = IMG_Load("images/player/player2/Idle/left/IdleL1.png");
+    p->img.player[5][2] = IMG_Load("images/player/player2/Idle/left/IdleL2.png");
+    p->img.player[5][3] = IMG_Load("images/player/player2/Idle/left/IdleL3.png");
+    p->img.player[5][4] = IMG_Load("images/player/player2/Idle/left/IdleL4.png");
+    p->img.player[5][5] = IMG_Load("images/player/player2/Idle/left/IdleL5.png");
+    p->img.player[5][6] = IMG_Load("images/player/player2/Idle/left/IdleL6.png");
+    p->img.player[5][7] = IMG_Load("images/player/player2/Idle/left/IdleL7.png");
+    p->img.player[5][8] = IMG_Load("images/player/player2/Idle/left/IdleL8.png");
+
     p->img.currentPlayerState = p->img.player[4][0];
     p->direction = 0;
-    p->playerPos.x = 70;
+    p->playerPos.x = 250;
     p->playerPos.y = 600;
-    p->playerPos.w = 0;
-    p->playerPos.h = 0;
+    p->playerPos.w = p->img.currentPlayerState->w;
+    p->playerPos.h = p->img.currentPlayerState->h;
     p->velocity = 3;
     p->acceleration = 0;
     p->up = 0;
@@ -71,67 +141,8 @@ void initPlayer1(player *p)
     p->score.playerScore = 1000;
     p->box_AABB.collision.x = p->playerPos.x;
     p->box_AABB.collision.y = p->playerPos.y;
-}
-
-void initPlayer2(player *p)
-{
-
-    // move right
-    p->img.player[0][0] = IMG_Load("images/lot1/Character2/right/right1.png");
-    p->img.player[0][1] = IMG_Load("images/lot1/Character2/right/right2.png");
-    p->img.player[0][2] = IMG_Load("images/lot1/Character2/right/right3.png");
-    p->img.player[0][3] = IMG_Load("images/lot1/Character2/right/right4.png");
-    p->img.player[0][4] = IMG_Load("images/lot1/Character2/right/right5.png");
-    p->img.player[0][5] = IMG_Load("images/lot1/Character2/right/right6.png");
-    // move left
-    p->img.player[1][0] = IMG_Load("images/lot1/Character2/left/left1.png");
-    p->img.player[1][1] = IMG_Load("images/lot1/Character2/left/left2.png");
-    p->img.player[1][2] = IMG_Load("images/lot1/Character2/left/left3.png");
-    p->img.player[1][3] = IMG_Load("images/lot1/Character2/left/left4.png");
-    p->img.player[1][4] = IMG_Load("images/lot1/Character2/left/left5.png");
-    p->img.player[1][5] = IMG_Load("images/lot1/Character2/left/left6.png");
-    // jump
-    p->img.player[2][0] = IMG_Load("images/lot1/Character2/jump/jump1R.png");
-    p->img.player[2][1] = IMG_Load("images/lot1/Character2/jump/jump2R.png");
-    p->img.player[2][2] = IMG_Load("images/lot1/Character2/jump/jump3R.png");
-    p->img.player[2][3] = IMG_Load("images/lot1/Character2/jump/jump1L.png");
-    p->img.player[2][4] = IMG_Load("images/lot1/Character2/jump/jump2L.png");
-    p->img.player[2][5] = IMG_Load("images/lot1/Character2/jump/jump3L.png");
-    // crouch
-    p->img.player[3][0] = IMG_Load("images/lot1/Character2/crouchR.png");
-    p->img.player[3][1] = IMG_Load("images/lot1/Character2/crouchL.png");
-    // idle right
-    p->img.player[4][0] = IMG_Load("images/lot1/Character2/Idle/right/IdleR.png");
-    p->img.player[4][1] = IMG_Load("images/lot1/Character2/Idle/right/IdleR1.png");
-    p->img.player[4][2] = IMG_Load("images/lot1/Character2/Idle/right/IdleR2.png");
-    p->img.player[4][3] = IMG_Load("images/lot1/Character2/Idle/right/IdleR3.png");
-    p->img.player[4][4] = IMG_Load("images/lot1/Character2/Idle/right/IdleR4.png");
-    p->img.player[4][5] = IMG_Load("images/lot1/Character2/Idle/right/IdleR5.png");
-    p->img.player[4][6] = IMG_Load("images/lot1/Character2/Idle/right/IdleR6.png");
-    p->img.player[4][7] = IMG_Load("images/lot1/Character2/Idle/right/IdleR7.png");
-    p->img.player[4][8] = IMG_Load("images/lot1/Character2/Idle/right/IdleR8.png");
-    // idle left
-    p->img.player[5][0] = IMG_Load("images/lot1/Character2/Idle/left/IdleL.png");
-    p->img.player[5][1] = IMG_Load("images/lot1/Character2/Idle/left/IdleL1.png");
-    p->img.player[5][2] = IMG_Load("images/lot1/Character2/Idle/left/IdleL2.png");
-    p->img.player[5][3] = IMG_Load("images/lot1/Character2/Idle/left/IdleL3.png");
-    p->img.player[5][4] = IMG_Load("images/lot1/Character2/Idle/left/IdleL4.png");
-    p->img.player[5][5] = IMG_Load("images/lot1/Character2/Idle/left/IdleL5.png");
-    p->img.player[5][6] = IMG_Load("images/lot1/Character2/Idle/left/IdleL6.png");
-    p->img.player[5][7] = IMG_Load("images/lot1/Character2/Idle/left/IdleL7.png");
-    p->img.player[5][8] = IMG_Load("images/lot1/Character2/Idle/left/IdleL8.png");
-
-    p->img.currentPlayerState = p->img.player[4][0];
-    p->direction = 0;
-    p->playerPos.x = 250;
-    p->playerPos.y = 600;
-    p->playerPos.w = 0;
-    p->playerPos.h = 0;
-    p->velocity = 3;
-    p->acceleration = 0;
-    p->up = 0;
-    p->down = 0;
-    p->isMoving = 0;
+    p->box_AABB.collision.h = p->playerPos.h;
+    p->box_AABB.collision.w = p->playerPos.w;
 }
 
 void displayPlayer(SDL_Surface *screen, player p)
@@ -176,6 +187,7 @@ void movePlayer(player *p, Uint32 dt)
 void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
 {
     int i, jumpHeight = 200;
+    int prev_y = p->playerPos.y;
     double gravity = 1, dx, dy;
     if (p->up == 1)
     {
@@ -185,7 +197,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
             for (i = 0; i < 3; i++)
             {
                 p->img.currentPlayerState = p->img.player[2][i];
-                p->playerPos.y = 600 - jumpHeight + i * jumpHeight / 2;
+                p->playerPos.y = prev_y - jumpHeight + i * jumpHeight / 2;
                 SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
                 SDL_Delay(150);
             }
@@ -195,7 +207,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
             for (i = 3; i < 6; i++)
             {
                 p->img.currentPlayerState = p->img.player[2][i];
-                p->playerPos.y = 600 - jumpHeight + (i - 3) * jumpHeight / 2;
+                p->playerPos.y = prev_y - jumpHeight + (i - 3) * jumpHeight / 2;
                 SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
                 SDL_Delay(150);
             }
@@ -210,7 +222,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
             SDL_Delay(150);
         }
 
-        p->playerPos.y = 600;
+        p->playerPos.y = prev_y;
     }
     else if (p->up == 2)
     {
@@ -246,7 +258,7 @@ void jumpPlayer(player *p, SDL_Surface *screen, Uint32 dt)
             SDL_BlitSurface(p->img.currentPlayerState, NULL, screen, &(p->playerPos));
             SDL_Delay(20);
         }
-        p->playerPos.y = 600;
+        p->playerPos.y = prev_y;
         if (p->direction == 0)
         {
             p->img.currentPlayerState = p->img.player[4][0];
@@ -266,7 +278,6 @@ void crouchPlayer(player *p)
             p->img.currentPlayerState = p->img.player[3][0];
         else if (p->direction == 1)
             p->img.currentPlayerState = p->img.player[3][1];
-        p->playerPos.y += 23;
     }
     p->down = 1;
 }
@@ -306,8 +317,8 @@ void stopPlayer(player *p, Uint32 *stop_time)
     p->isMoving = 0;
     p->up = 0;
     p->down = 0;
-    p->playerPos.y = 600;
     p->acceleration = 0;
+    p->direction = -1;
 }
 
 void libPlayer(player *p)
@@ -384,156 +395,162 @@ void displayHealth(SDL_Surface *screen, player *p, image_lot1 bgIMG)
     SDL_BlitSurface(p->health.hpBar, NULL, screen, &p->health.hpBarPos);
 }
 
-/*void handleMovement(SDL_Surface *screen, player *p, Uint32 dt, Uint32 stop_time,int multiplayer);
+void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer, int game, int level)
 {
-   const Uint8 *keys = SDL_GetKeyState(NULL);
-   SDL_Event event;
+    const Uint8 *keys = SDL_GetKeyState(NULL);
+    SDL_Event event;
 
-   while (SDL_PollEvent(&event))
-   {
-       switch (event.type)
-       {
-       case SDL_KEYDOWN:
-           switch (event.key.keysym.sym)
-           {
-           case SDLK_d:
-               p1->isMoving = 1;
-               p1->direction = 0;
-               movePlayer(p1, dt);
-               if (keys[SDLK_d] && keys[SDLK_LSHIFT])
-               {
-                   if (p1->acceleration < 0.05)
-                       p1->acceleration += 0.05;
-               }
-               break;
-           case SDLK_q:
-               p1->isMoving = 1;
-               p1->direction = 1;
-               movePlayer(p1, dt);
-               if (keys[SDLK_q] && keys[SDLK_LSHIFT])
-               {
-                   if (p1->acceleration < 0.05)
-                       p1->acceleration += 0.05;
-               }
-               break;
-           case SDLK_z:
-               p1->isMoving = 1;
-               if (keys[SDLK_d] && keys[SDLK_z])
-               {
-                   p1->direction = 0;
-                   p1->up = 2;
-                   jumpPlayer(p1, screen, dt);
-                   p1->hasJumped = 1;
-               }
-               else if (keys[SDLK_q] && keys[SDLK_z])
-               {
-                   p1->direction = 1;
-                   p1->up = 2;
-                   jumpPlayer(p1, screen, dt);
-                   p1->hasJumped = 1;
-               }
-               else if (!p1->hasJumped)
-               {
-                   p1->up = 1;
-                   jumpPlayer(p1, screen, dt);
-               }
-               p1->hasJumped = 0;
-               break;
-           case SDLK_s:
-               p1->isMoving = 1;
-               crouchPlayer(p1);
-               break;
-           case SDLK_RIGHT:
-               p2->isMoving = 1;
-               p2->direction = 0;
-               movePlayer(p2, dt);
-               if (keys[SDLK_RIGHT] && keys[SDLK_RSHIFT])
-               {
-                   if (p2->acceleration < 0.05)
-                       p2->acceleration += 0.05;
-               }
-               break;
-           case SDLK_LEFT:
-               p2->isMoving = 1;
-               p2->direction = 1;
-               movePlayer(p2, dt);
-               if (keys[SDLK_LEFT] && keys[SDLK_RSHIFT])
-               {
-                   if (p2->acceleration < 0.05)
-                       p2->acceleration += 0.05;
-               }
-               break;
-           case SDLK_UP:
-               p2->isMoving = 1;
-               if (keys[SDLK_RIGHT] && keys[SDLK_UP])
-               {
-                   p2->direction = 0;
-                   p2->up = 2;
-                   jumpPlayer(p2, screen, dt);
-                   p2->hasJumped = 1;
-               }
-               else if (keys[SDLK_LEFT] && keys[SDLK_UP])
-                               {
-                   p2->direction = 1;
-                   p2->up = 2;
-                   jumpPlayer(p2, screen, dt);
-                   p2->hasJumped = 1;
-               }
-               else if (!p2->hasJumped)
-               {
-                   p2->up = 1;
-                   jumpPlayer(p2, screen, dt);
-               }
-               p2->hasJumped = 0;
-               break;
-           case SDLK_DOWN:
-               p2->isMoving = 1;
-               crouchPlayer(p2);
-               break;
-           }
-           break;
-            case SDL_MOUSEBUTTONDOWN:
-                       player1.shoot = 1;
-                       break;
-                   case SDL_MOUSEBUTTONUP:
-                       player1.shoot = 0;
-                       break;
-       case SDL_KEYUP:
-           switch (event.key.keysym.sym)
-           {
-           case SDLK_LSHIFT:
-               p1->acceleration = 0;
-               p2->acceleration = 0;
-               break;
-           case SDLK_d:
-               p1->isMoving = 0;
-               p1->acceleration -= 0.01;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_q:
-               p1->isMoving = 0;
-               p1->acceleration -= 0.01;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_s:
-               p1->isMoving = 0;
-               stopPlayer(p1, &stop_time);
-               break;
-           case SDLK_RIGHT:
-               p2->isMoving = 0;
-               p2->acceleration -= 0.01;
-               stopPlayer(p2, &stop_time);
-               break;
-           case SDLK_LEFT:
-               p2->isMoving = 0;
-               p2->acceleration -= 0.01;
-               stopPlayer(p2, &stop_time);
-               break;
-           case SDLK_DOWN:
-               p2->isMoving = 0;
-               stopPlayer(p2, &stop_time);
-               break;
-           }
-       }
-   }
-}*/
+    while (SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+        case SDL_QUIT:
+            SDL_Quit();
+            break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_ESCAPE:
+                level = 0;
+                break;
+            case SDLK_d:
+                p1->isMoving = 1;
+                p1->direction = 0;
+                movePlayer(p1, dt);
+                if (keys[SDLK_d] && keys[SDLK_LSHIFT])
+                {
+                    if (p1->acceleration < 0.05)
+                        p1->acceleration += 0.05;
+                }
+                break;
+            case SDLK_q:
+                p1->isMoving = 1;
+                p1->direction = 1;
+                movePlayer(p1, dt);
+                if (keys[SDLK_q] && keys[SDLK_LSHIFT])
+                {
+                    if (p1->acceleration < 0.05)
+                        p1->acceleration += 0.05;
+                }
+                break;
+            case SDLK_z:
+                p1->isMoving = 1;
+                if (keys[SDLK_d] && keys[SDLK_z])
+                {
+                    p1->direction = 0;
+                    p1->up = 2;
+                    jumpPlayer(p1, screen, dt);
+                    p1->hasJumped = 1;
+                }
+                else if (keys[SDLK_q] && keys[SDLK_z])
+                {
+                    p1->direction = 1;
+                    p1->up = 2;
+                    jumpPlayer(p1, screen, dt);
+                    p1->hasJumped = 1;
+                }
+                else if (!p1->hasJumped)
+                {
+                    p1->up = 1;
+                    jumpPlayer(p1, screen, dt);
+                }
+                p1->hasJumped = 0;
+                break;
+            case SDLK_s:
+                p1->isMoving = 1;
+                crouchPlayer(p1);
+                break;
+            case SDLK_RIGHT:
+                p2->isMoving = 1;
+                p2->direction = 0;
+                movePlayer(p2, dt);
+                if (keys[SDLK_RIGHT] && keys[SDLK_RSHIFT])
+                {
+                    if (p2->acceleration < 0.05)
+                        p2->acceleration += 0.05;
+                }
+                break;
+            case SDLK_LEFT:
+                p2->isMoving = 1;
+                p2->direction = 1;
+                movePlayer(p2, dt);
+                if (keys[SDLK_LEFT] && keys[SDLK_RSHIFT])
+                {
+                    if (p2->acceleration < 0.05)
+                        p2->acceleration += 0.05;
+                }
+                break;
+            case SDLK_UP:
+                p2->isMoving = 1;
+                if (keys[SDLK_RIGHT] && keys[SDLK_UP])
+                {
+                    p2->direction = 0;
+                    p2->up = 2;
+                    jumpPlayer(p2, screen, dt);
+                    p2->hasJumped = 1;
+                }
+                else if (keys[SDLK_LEFT] && keys[SDLK_UP])
+                {
+                    p2->direction = 1;
+                    p2->up = 2;
+                    jumpPlayer(p2, screen, dt);
+                    p2->hasJumped = 1;
+                }
+                else if (!p2->hasJumped)
+                {
+                    p2->up = 1;
+                    jumpPlayer(p2, screen, dt);
+                }
+                p2->hasJumped = 0;
+                break;
+            case SDLK_DOWN:
+                p2->isMoving = 1;
+                crouchPlayer(p2);
+                break;
+            }
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            p1->shoot = 1;
+            break;
+        case SDL_MOUSEBUTTONUP:
+            p1->shoot = 0;
+            break;
+        case SDL_KEYUP:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_LSHIFT:
+                p1->acceleration = 0;
+                p2->acceleration = 0;
+                break;
+            case SDLK_d:
+                p1->isMoving = 0;
+                p1->acceleration -= 0.01;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_q:
+                p1->isMoving = 0;
+                p1->acceleration -= 0.01;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_s:
+                p1->isMoving = 0;
+                stopPlayer(p1, &stop_time);
+                break;
+            case SDLK_RIGHT:
+                p2->isMoving = 0;
+                p2->acceleration -= 0.01;
+                stopPlayer(p2, &stop_time);
+                break;
+            case SDLK_LEFT:
+                p2->isMoving = 0;
+                p2->acceleration -= 0.01;
+                stopPlayer(p2, &stop_time);
+                break;
+            case SDLK_DOWN:
+                p2->isMoving = 0;
+                stopPlayer(p2, &stop_time);
+                break;
+            }
+        }
+    }
+}
