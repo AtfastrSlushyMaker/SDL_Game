@@ -405,7 +405,7 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
         switch (event.type)
         {
         case SDL_QUIT:
-            SDL_Quit();
+        break;
             break;
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym)
