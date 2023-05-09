@@ -127,7 +127,7 @@ void initPlayer2(player *p)
     p->img.currentPlayerState = p->img.player[4][0];
     p->direction = 0;
     p->playerPos.x = 250;
-    p->playerPos.y = 600;
+    p->playerPos.y = 500;
     p->playerPos.w = p->img.currentPlayerState->w;
     p->playerPos.h = p->img.currentPlayerState->h;
     p->velocity = 3;
@@ -180,7 +180,7 @@ void movePlayer(player *p, Uint32 dt)
     }
 }
 
-void jumpPlayer(player* p)
+void jumpPlayer(player *p)
 {
     int jumpHeight = 280;
     int initial_Y = p->playerPos.y;
@@ -191,11 +191,13 @@ void jumpPlayer(player* p)
         if (p->up == 2 && p->playerPos.y > jumpHeight && p->direction != 3)
         {
             p->playerPos.y -= 100;
-            if (p->direction == 1) {
-                p->playerPos.x -= 70; 
+            if (p->direction == 1)
+            {
+                p->playerPos.x -= 70;
             }
-            else if(p->direction == 0){
-                p->playerPos.x += 70; 
+            else if (p->direction == 0)
+            {
+                p->playerPos.x += 70;
             }
             return;
         }
@@ -221,7 +223,7 @@ void jumpPlayer(player* p)
 
     if (p->playerPos.y != initial_Y && p->playerPos.y < initial_Y)
     {
-        p->playerPos.y += gravity; 
+        p->playerPos.y += gravity;
         gravity += 0.5;
     }
 
@@ -231,7 +233,6 @@ void jumpPlayer(player* p)
         p->up = 0;
     }
 }
-
 
 void crouchPlayer(player *p)
 {
@@ -303,20 +304,20 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
                 {
                     p1->direction = 0;
                     p1->up = 2;
-                  jumpPlayer(p1);
+                    jumpPlayer(p1);
                     p1->hasJumped = 1;
                 }
                 else if (keys[SDLK_q] && keys[SDLK_z])
                 {
                     p1->direction = 1;
                     p1->up = 2;
-                  jumpPlayer(p1);
+                    jumpPlayer(p1);
                     p1->hasJumped = 1;
                 }
                 else if (!p1->hasJumped)
                 {
                     p1->up = 1;
-                  jumpPlayer(p1);
+                    jumpPlayer(p1);
                 }
                 p1->hasJumped = 0;
                 break;
@@ -350,20 +351,20 @@ void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint
                 {
                     p2->direction = 0;
                     p2->up = 2;
-                   jumpPlayer(p2);
+                    jumpPlayer(p2);
                     p2->hasJumped = 1;
                 }
                 else if (keys[SDLK_LEFT] && keys[SDLK_UP])
                 {
                     p2->direction = 1;
                     p2->up = 2;
-                   jumpPlayer(p2);
+                    jumpPlayer(p2);
                     p2->hasJumped = 1;
                 }
                 else if (!p2->hasJumped)
                 {
                     p2->up = 1;
-                   jumpPlayer(p2);
+                    jumpPlayer(p2);
                 }
                 p2->hasJumped = 0;
                 break;

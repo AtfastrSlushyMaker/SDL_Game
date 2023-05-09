@@ -56,7 +56,7 @@ void initPlayer1(player *p);
 void initPlayer2(player *p);
 
 void movePlayer(player *p, Uint32 dt);
-void jumpPlayer(player* p);
+void jumpPlayer(player *p);
 void crouchPlayer(player *p);
 void stopPlayer(player *p, Uint32 *stop_time);
 void handleMovement(SDL_Surface *screen, player *p1, player *p2, Uint32 dt, Uint32 stop_time, int multiplayer);
