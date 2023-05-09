@@ -6,7 +6,7 @@ void sauvegarder (player p, char * nomfichier)
 	FILE *f;
    
 	f=fopen(nomfichier, "w");
-	fprintf(f, "%d %d\n", p.playerPos.x, p.playerPos.y);
+	fprintf(f, "%d %d %d %d\n", p.playerPos.x, p.playerPos.y,p.score.playerScore,p.health.playerHP);
 	fclose(f);
 }
 
@@ -19,9 +19,9 @@ void charger (player *p , char * nomfichier)
 	     printf("ERROR !");
 	}
 	else
-	{	int x=0,y=0;
+	{	
 		printf("loading");
-		fscanf(f,"%hd %hd\n",&p->playerPos.x,&p->playerPos.y);
+		fscanf(f,"%d %d %d %d\n",&(p->playerPos.x),&(p->playerPos.y),&(p->score.playerScore),&(p->health.playerHP));
 	
 	}
 	fclose(f);
