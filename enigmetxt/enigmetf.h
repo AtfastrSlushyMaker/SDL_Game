@@ -73,5 +73,5 @@ void displayClock(enigmetf e, SDL_Surface *ecran);
 void verify_enigme(enigmetf *e, SDL_Surface *ecran);
 void animer(enigmetf *e);
 void free_Surface_enigme(enigmetf e);
-void enigme(enigmetf e,SDL_Surface *screen);
+int enigme_tf(enigmetf e,SDL_Surface *screen);
 #endif

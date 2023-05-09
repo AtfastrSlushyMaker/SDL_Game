@@ -463,7 +463,7 @@ void free_Surface_enigme(enigmetf e)
 	SDL_FreeSurface(e.button_s);
 }
 
-void enigme(enigmetf e, SDL_Surface *screen)
+int enigme_tf(enigmetf e, SDL_Surface *screen)
 {
 	SDL_Surface *great;
 	SDL_Surface *wrong;
@@ -494,10 +494,12 @@ void enigme(enigmetf e, SDL_Surface *screen)
 
 				case SDLK_b:
 					e.pos_selected = 2;
+					c = 0;
 					break;
 
 				case SDLK_c:
 					e.pos_selected = 3;
+					c = 0;
 					break;
 
 				case SDLK_RETURN:
@@ -522,12 +524,14 @@ void enigme(enigmetf e, SDL_Surface *screen)
 							printf("GREAT\n");
 							SDL_BlitSurface(great, NULL, screen, &pos);
 							SDL_Flip(screen);
+							c=0;
 						}
 						else
 						{
 							SDL_BlitSurface(wrong, NULL, screen, &pos);
 							SDL_Flip(screen);
 							printf("false\n");
+							c=0;
 						}
 						SDL_Delay(2000);
 
@@ -544,12 +548,14 @@ void enigme(enigmetf e, SDL_Surface *screen)
 							printf("GREAT\n");
 							SDL_BlitSurface(great, NULL, screen, &pos);
 							SDL_Flip(screen);
+							c=0;
 						}
 						else
 						{
 							SDL_BlitSurface(wrong, NULL, screen, &pos);
 							SDL_Flip(screen);
 							printf("false\n");
+							c=0;
 						}
 						SDL_Delay(2000);
 
@@ -566,12 +572,14 @@ void enigme(enigmetf e, SDL_Surface *screen)
 							printf("GREAT\n");
 							SDL_BlitSurface(great, NULL, screen, &pos);
 							SDL_Flip(screen);
+							c=0;
 						}
 						else
 						{
 							SDL_BlitSurface(wrong, NULL, screen, &pos);
 							SDL_Flip(screen);
 							printf("false\n");
+							c=0;
 						}
 						SDL_Delay(1000);
 
@@ -591,7 +599,6 @@ void enigme(enigmetf e, SDL_Surface *screen)
 			bingoo = 0;
 		}
 
-	
 		SDL_Flip(screen);
 	}
 }

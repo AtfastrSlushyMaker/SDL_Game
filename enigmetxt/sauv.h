@@ -1,9 +1,8 @@
-#ifndef SAUV_H_INCLUDED
-#define SAUV_H_INCLUDED
+#ifndef SAUV_H
+#define SAUV_H
 #include "../player/player.h"
-#include"background.h"
 
 void sauvegarder (player p, char * nomfichier);
-int charger (player *p , char * nomfichier);
+void charger (player *p , char * nomfichier);
 
 #endif

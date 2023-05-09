@@ -1,6 +1,5 @@
 #include "sauv.h"
 #include "../player/player.h"
-#include"background.h"
 
 void sauvegarder (player p, char * nomfichier)
 {	
@@ -11,7 +10,7 @@ void sauvegarder (player p, char * nomfichier)
 	fclose(f);
 }
 
-int charger (player *p, char * nomfichier)
+void charger (player *p , char * nomfichier)
 {
 	
 	FILE *f=fopen(nomfichier,"r");

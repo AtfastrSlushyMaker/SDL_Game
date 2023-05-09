@@ -13,6 +13,9 @@
 #include "minimap/minimap.h"
 #include "tic_tac_toe/tic_tac_toe.h"
 #include "enigmetxt/enigmetf.h"
+#include "enigmetxt/sauv.h"
+
+
 int main()
 {
   // SCREEN
@@ -134,10 +137,14 @@ int main()
 
   // INISIALISATION MINIMAP
   initminimap(&m1);
+
+
   // INITIALISATION ENIGME TXT
   enigmetf e;
-  char nomfichier[50] ="questions_rep_vrairep.txt";
+  char nomfichier[] ="questions_rep_vrairep.txt";
   InitEnigme( &e, nomfichier);
+
+
   while (game)
   {
     SDL_GetMouseState(&mouseX, &mouseY);
@@ -180,7 +187,7 @@ int main()
           }
           break;
         case SDL_MOUSEBUTTONDOWN:
-          click_image(&back_arrow, screen, back_arrow, mouseX, mouseY, event, 0, &level, &game, &multiplayer);
+          click_image(&back_arrow, screen, back_arrow, mouseX, mouseY, event, 0, &level, &game, &multiplayer,&player1);
         }
       }
 
@@ -222,11 +229,11 @@ int main()
           }
           break;
         case SDL_MOUSEBUTTONDOWN:
-          click_image(&play, screen, play_var, event.button.x, event.button.y, event, 1, &level, &game, &multiplayer);
-          click_image(&multiplayer_image, screen, multiplayer_image_var, event.button.x, event.button.y, event, 69, &level, &game, &multiplayer);
-          click_image(&quit, screen, quit_var, event.button.x, event.button.y, event, -10, &level, &game, &multiplayer);
-          click_image(&settings, screen, settings, event.button.x, event.button.y, event, -1, &level, &game, &multiplayer);
-          click_image(&load_game, screen, load_game_var, event.button.x, event.button.y, event, -2, &level, &game, &multiplayer);
+          click_image(&play, screen, play_var, event.button.x, event.button.y, event, 1, &level, &game, &multiplayer,&player1);
+          click_image(&multiplayer_image, screen, multiplayer_image_var, event.button.x, event.button.y, event, 69, &level, &game, &multiplayer,&player1);
+          click_image(&quit, screen, quit_var, event.button.x, event.button.y, event, -10, &level, &game, &multiplayer,&player1);
+          click_image(&settings, screen, settings, event.button.x, event.button.y, event, -1, &level, &game, &multiplayer,&player1);
+          click_image(&load_game, screen, load_game_var, event.button.x, event.button.y, event, -2, &level, &game, &multiplayer,&player1);
           break;
         default:
           break;

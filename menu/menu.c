@@ -6,8 +6,8 @@
 #include <SDL/SDL_ttf.h>
 #include "menu.h"
 #include "../game.h"
-#include "../enigmetxt/sauv.h"
 #include "../player/player.h"
+#include "../enigmetxt/sauv.h"
 
 void anim_boat(image *IMAGE, SDL_Surface *screen)
 {
@@ -49,8 +49,8 @@ void click_image(image *IMAGE, SDL_Surface *screen, image var, int x, int y, SDL
       *game = 0;
     else if (level == 69)
       *multiplayer = 1;
-      else if (level==-2)
-      charger(&p,"load.txt");
+    else if (level==-2)
+      charger(p,"load.txt");
     else
       *current_level = level;
   }
