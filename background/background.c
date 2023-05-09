@@ -3,13 +3,10 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
-#include "background.h"
 #include "../player/player.h"
 #include "../game.h"
-void displayLevel(background backg, SDL_Surface *screen)
-{
-    SDL_BlitSurface(backg.bg, &backg.camera, screen, &backg.bgPos);
-}
+#include "background.h"
+
 void initBackground(background *backg, char *url, char *maskURL)
 {
     backg->bg = IMG_Load(url);
@@ -22,39 +19,34 @@ void initBackground(background *backg, char *url, char *maskURL)
     backg->camera.h = SCREEN_H;
     backg->direction = 0;
 }
-void scrolling(background *bg, player *p,int col)
+void displayLevel(background backg, SDL_Surface *screen)
 {
-  int speed = p->velocity;
-  if (p->direction == 0)
-  {
-    //printf("\n%d,%d",B->camera.x  ,5009 - B->camera.w);
-    if (( bg->camera.x <5000- bg->camera.w)  &&(p->playerPos.x>= bg->bgPos.x))
+    SDL_BlitSurface(backg.bg, &backg.camera, screen, &backg.bgPos);
+}
+void scrolling(background *backg, player p, int col, int col2, int col3, int col4)
+{
+    if (backg->direction == 2)
     {
-      bg->camera.x += speed;
+        if (backg->camera.x > 0 && p.playerPos.x <= 5000 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0 && p.up == 3)
+            backg->camera.x = backg->camera.x - 60;
+        if (backg->camera.x > p.playerPos.x - 640)
+        {
+            if (backg->camera.x > 0 && p.playerPos.x <= 4800 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0)
+                backg->camera.x = backg->camera.x - 10;
+            else if (backg->camera.x > 0 && p.playerPos.x > 4800 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0)
+                backg->camera.x = backg->camera.x - 1;
+        }
     }
-  }
-  if (p->direction == 1)
-  {
-    if (bg->camera.x-speed > 0)
+    else if (backg->direction == 1)
     {
-      bg->camera.x -= speed;
+        if (backg->camera.x < 3820 && p.playerPos.x >= 300 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0 && p.up == 2)
+            backg->camera.x = backg->camera.x + 60;
+        if (backg->camera.x + 640 < p.playerPos.x)
+        {
+            if (backg->camera.x < 3820 && p.playerPos.x >= 300 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0)
+                backg->camera.x = backg->camera.x + 10;
+            else if (backg->camera.x < 3820 && p.playerPos.x < 300 && col == 0 && col2 == 0 && col3 == 0 && col4 == 0)
+                backg->camera.x = backg->camera.x + 1;
+        }
     }
-  }
-  /*
-  if (direction == 2)
-  {
-    if (B->camera.y > 50)
-    {
-      B->camera.y -= 10;
-    }
-  }
-  if (direction == 3)
-  {
-    if (B->camera.y < 194)
-    {
-      B->camera.y += 10;
-    }
-  
-  }
-  */
 }

@@ -78,12 +78,11 @@ int main()
   if (screen == NULL)
   {
     printf("%s\n", SDL_GetError());
+    return -1;
   }
-  TTF_Init();
-  // INITALISATION PLAYERS
-  initPlayer1(&player1);
-  initPlayer2(&player2);
 
+  // INTIALISATION LEVELS
+  initBackground(&bg_lvl1, "images/background/Background_LVL_1.png", "images/background/Background_LVL_1.png");
   // INITIALISATION MENU
   init_image(&bg_menu, "images/menu/background_without_boat.png", 0, 0);
   init_image(&boat, "images/menu/boat.png", 0, 570);
@@ -112,13 +111,14 @@ int main()
   init_image(&volume_slider[4], "images/settings/volume_slider/slider5.png", 280, 350);
   init_image(&back_arrow, "images/settings/back_arrow.png", 50, SCREEN_H / 2 - 50);
 
-  // INTIALISATION LEVELS
-  initBackground(&bg_lvl1, "images/background/Background_LVL_1 .png", "images/background/Background_LVL_1 .png");
+  // INITALISATION PLAYERS
+  initPlayer1(&player1);
+  initPlayer2(&player2);
   SDL_EnableKeyRepeat(5, 5);
   while (game)
   {
     SDL_GetMouseState(&mouseX, &mouseY);
-     //printf("x = %d, y = %d\n", mouseX, mouseY);
+    // printf("x = %d, y = %d\n", mouseX, mouseY);
     switch (level)
     {
     case -1: // SETTINGS
@@ -218,22 +218,34 @@ int main()
     case 1: // LEVEL 1
       t_prev = SDL_GetTicks();
       displayLevel(bg_lvl1, screen);
-
       displayPlayer(screen, player1);
-      displayScore(screen, &player1);
-      // displayHealth(screen, &player1, IMAGE_BACKGROUND_LEVEL_1);
-      animatePlayer(&player1, stop_time);
+      //animatePlayer(&player1, stop_time);
       if (multiplayer)
       {
-        printf("jawna boobs");
         displayPlayer(screen, player2);
       }
-        handleMovement(screen, &player1, &player2, dt, stop_time, 1,game,level);
-        scrolling(&bg_lvl1,&player1,0);
-     
-      dt = SDL_GetTicks() - t_prev;
+      handleMovement(screen, &player1, &player2, dt, stop_time, multiplayer);
+      while (SDL_PollEvent(&event))
+      {
+        switch (event.type)
+        {
+        case SDL_QUIT:
+          game = 0;
+          break;
+        case SDL_KEYDOWN:
+          switch (event.key.keysym.sym)
+          {
+          case SDLK_ESCAPE:
+            level = 0;
+            break;
+          }
+        }
+      }
 
+      dt = SDL_GetTicks() - t_prev;
+      // SDL_EnableKeyRepeat(0,0);
       break;
+
     case 2: // LEVEL 2
 
       break;
@@ -247,7 +259,6 @@ int main()
     }
     SDL_Flip(screen);
   }
-  
 
   // FREE IMAGES
 
